@@ -1,0 +1,22 @@
+<%= form_for(@free) do |f| %>
+  <% if @free.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@free.errors.count, "error") %> prohibited this free from being saved:</h2>
+
+      <ul>
+      <% @free.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

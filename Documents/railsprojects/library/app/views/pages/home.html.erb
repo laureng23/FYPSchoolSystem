@@ -1,0 +1,26 @@
+<div id ="portfolio" class = "wrapper-style1">
+  <div id ="column1">
+      <p class = "image image-full"><%= link_to(image_tag("pic02.jpg")) %></p>
+      <h1>Welcome</h1>
+      <p>New user? <%= link_to "Sign up now", new_member_path %></p>
+    </div>
+    <div id ="column2">
+       
+        <p class = "image image-full"><%= link_to(image_tag("pic03.jpg"))%></p>
+         <h1>Books</h1>
+        <p><%= link_to "View all books we have!", books_path %></p>
+    </div>
+    <div id = "column3">
+        
+        <p class = "image image-full"><%= link_to(image_tag("pic04.jpg")) %></p>
+        <h1>Reservations</h1>
+        <p><%= link_to "Make a reservation!", new_reservation_path %></p>
+    </div>
+    <div id = "column4">
+        
+        <p class = "image image-full"><%= link_to(image_tag("pic05.jpg")) %></p>
+        <h1>Freebies</h1>
+        <p><%= link_to "Download our free books!", frees_path %></p>
+    </div>
+    
+</div>

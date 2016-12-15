@@ -1,0 +1,2 @@
+module OagesHelper
+end

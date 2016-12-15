@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rating: 1
+  descritpion: MyString
+  recommend: false
+  member_id: 1
+  book_id: 1
+
+two:
+  rating: 1
+  descritpion: MyString
+  recommend: false
+  member_id: 1
+  book_id: 1

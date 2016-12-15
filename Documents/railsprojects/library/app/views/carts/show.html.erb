@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<table>
+    <% @cart.lineitems.each do |item| %>
+    <tr>
+        <td><%item.quantity %> &times;</td>
+        <td><%= item.book.title %></td>
+        
+    </tr>
+    <%end%>
+    
+</table>
+
+<%= button_to "Continue browsing?", root_path, :method => :get %>
+<%= button_to "Empty Cart", @cart, method: :delete, confirm: "Are you sure?" %>
+<%= button_to "Checkout", new_order_path, :method => :get %>
+
+<%= link_to 'Back', carts_path %>

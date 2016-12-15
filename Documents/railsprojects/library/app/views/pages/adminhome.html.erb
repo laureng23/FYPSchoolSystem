@@ -1,0 +1,48 @@
+<div id ="portfolio" class = "wrapper-style1">
+  <div id ="column1">
+      <p class = "image image-full"><%= link_to(image_tag("pic02.jpg")) %></p>
+      <h1>User Management</h1>
+      <p><%= link_to "See and Edit Users", members_path %></p>
+    </div>
+    <div id ="column2">
+       
+        <p class = "image image-full"><%= link_to(image_tag("pic03.jpg"))%></p>
+         <h1>Genres</h1>
+        <p><%= link_to "Update genres available", genres_path %></p>
+        <p><%= link_to "Add New Genre", new_genre_path %></p>
+    </div>
+    <div id = "column3">
+        
+        <p class = "image image-full"><%= link_to(image_tag("pic04.jpg")) %></p>
+        <h1>Books</h1>
+        <p><%= link_to "Manage books in system!", books_path %></p>
+        <p> </p>
+    </div>
+    
+    <div id = "column4">
+        
+        <p class = "image image-full"><%= link_to(image_tag("pic05.jpg")) %></p>
+        <h1>Freebies</h1>
+        <p><%= link_to "Upload new free books!", new_free_path %></p>
+        <p><%= link_to "Manage free books", frees_path %></p>
+    </div>
+    <div id ="column1">
+      <p class = "image image-full"><%= link_to(image_tag("pic02.jpg")) %></p>
+      <h1>Books on Loan</h1>
+        <p><%= link_to "View all loans ", orders_path %></p>
+    </div>
+     <div id ="column2">
+       
+        <p class = "image image-full"><%= link_to(image_tag("pic03.jpg"))%></p>
+         <h1>Check books back</h1>
+         <p><%= link_to "return books", books_path %></p>
+    </div>
+    <div id = "column3">
+        
+        <p class = "image image-full"><%= link_to(image_tag("pic04.jpg")) %></p>
+        <h1>New Books</h1>
+        <p><%= link_to "Add new books", new_book_path %></p>
+    </div>
+
+    
+</div>
