@@ -15,6 +15,7 @@
 <body>
     <div class="generic-container">
         <%@include file="authheader.jsp" %>
+        <%@include file="sideNav.jsp" %>  
 
          <div class="well lead">Class Group Registration Form</div>
         <form:form method="POST" modelAttribute="classGroup" class="form-horizontal">
@@ -48,9 +49,11 @@
                 <div class="form-group col-md-12">
                     <label class="col-md-3 control-lable" for=users>Student</label>
                     <div class="col-md-7">
-                    <form:select path="users" items="${students}" multiple="true" itemValue="id" itemLabel="firstName" class="form-control input-sm" />
+                    <form:checkboxes element="li" items="${students}" path="userClassGroups" itemValue="id" itemLabel="firstName"/>
+                    <!---<form:radiobuttons items="${students}" path="userClassGroups" multiple="true" value="id" itemLabel="firstName" />-->
+                    <!-- <form:select path="userClassGroups" items="${students}" multiple="true" itemValue="id" itemLabel="firstName" class="form-control input-sm" />-->
                         <div class="has-error">
-                            <form:errors path="users" class="help-inline"/>
+                            <form:errors path="userClassGroups" class="help-inline"/>
                        
                         </div>
                     </div>

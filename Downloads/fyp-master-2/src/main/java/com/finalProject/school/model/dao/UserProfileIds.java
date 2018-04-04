@@ -5,7 +5,7 @@ import java.util.Collection;
 
 public enum UserProfileIds {
 
-	USER(1), ADMIN(2), TEACHER(4);
+	USER(3), ADMIN(2), TEACHER(4);
 	
 	private Integer value;
 

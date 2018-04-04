@@ -1,15 +1,18 @@
 package com.finalProject.school.model;
 import java.io.Serializable;
+import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
  
 import org.hibernate.validator.constraints.NotEmpty;
@@ -29,10 +32,15 @@ public class ClassGroup implements Serializable{
     @Column(name="title", nullable=false)
     private String title;
     
-    @OneToMany(fetch = FetchType.EAGER,mappedBy = "classGroup", cascade = CascadeType.ALL)
-    private Set<User> users;
-
- 
+    
+    @Column(name="SchoolYear", nullable=false)
+    private Date schoolYear;
+    
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "USER_CLASS_GROUPS", 
+             joinColumns = { @JoinColumn(name = "USER_CLASSGROUP_ID") }, 
+             inverseJoinColumns = { @JoinColumn(name = "USER_ID") })
+    private Set<User> userClassGroups = new HashSet<User>();
     
     public Integer getId() {
         return id;
@@ -57,13 +65,21 @@ public class ClassGroup implements Serializable{
     public void setTitle(String title) {
         this.title = title;
     }
- 
-    public Set<User> getUsers(){
-    		return users;
+    
+    public Date getSchoolYear() {
+    		return schoolYear;
     }
     
-    public void setUsers(Set<User> users) {
-    		this.users = users;
+    public void setSchoolYear(Date schoolYear) {
+    		this.schoolYear = schoolYear;
+    }
+ 
+    public Set<User> getUserClassGroups(){
+    		return userClassGroups;
+    }
+    
+    public void setUserClassGroups(Set<User> userClassGroup) {
+    		this.userClassGroups = userClassGroup;
     }
 
  

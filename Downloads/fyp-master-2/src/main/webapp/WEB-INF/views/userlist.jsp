@@ -10,11 +10,14 @@
     <title>Users List</title>
     <link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
     <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
+  
+   
 </head>
  
 <body>
     <div class="generic-container">
-        <%@include file="authheader.jsp" %>   
+        <%@include file="authheader.jsp" %>  
+        <%@include file="sideNav.jsp" %>  
         <div class="panel panel-default">
               <!-- Default panel contents -->
             <div class="panel-heading"><span class="lead">List of Users </span></div>
@@ -25,7 +28,7 @@
                         <th>Lastname</th>
                         <th>Email</th>
                         <th>SSO ID</th>
-                        <sec:authorize access="hasRole('ADMIN') or hasRole('DBA')">
+                        <sec:authorize access="hasRole('ADMIN') or hasRole('TEACHER')">
                             <th width="100"></th>
                         </sec:authorize>
                         <sec:authorize access="hasRole('ADMIN')">
@@ -41,7 +44,7 @@
                         <td>${user.lastName}</td>
                         <td>${user.email}</td>
                         <td>${user.ssoId}</td>
-                        <sec:authorize access="hasRole('ADMIN') or hasRole('DBA')">
+                        <sec:authorize access="hasRole('ADMIN') or hasRole('TEACHER')">
                             <td><a href="<c:url value='/edit-user-${user.ssoId}' />" class="btn btn-success custom-width">edit</a></td>
                         </sec:authorize>
                         <sec:authorize access="hasRole('ADMIN')">
@@ -54,9 +57,10 @@
         </div>
         <sec:authorize access="hasRole('ADMIN')">
             <div class="well">
-                <a href="<c:url value='/newuser' />">Add New User</a>
-                 <a href="<c:url value='/newClassGroup' />">Add New Class Group</a>
-                 <a href="<c:url value='/classList' />">AView Class List</a>
+              
+                
+                
+                 
             </div>
         </sec:authorize>
     </div>

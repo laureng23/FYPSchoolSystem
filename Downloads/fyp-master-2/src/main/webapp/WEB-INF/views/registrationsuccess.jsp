@@ -13,6 +13,7 @@
 <body>
     <div class="generic-container">
         <%@include file="authheader.jsp" %>
+        <%@include file="sideNav.jsp" %>  
          
         <div class="alert alert-success lead">
             ${success}

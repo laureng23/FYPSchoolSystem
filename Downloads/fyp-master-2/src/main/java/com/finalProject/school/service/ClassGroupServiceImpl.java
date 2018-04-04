@@ -24,13 +24,12 @@ public class ClassGroupServiceImpl implements ClassGroupService{
         return dao.findById(id);
     }
  
-    public ClassGroup findByGroupCode(String code) {
-        ClassGroup classGroup = dao.findByGroupCode(code);
+    public ClassGroup findByGroupCode(String group_code) {
+        ClassGroup classGroup = dao.findByGroupCode(group_code);
         return classGroup;
     }
  
     public void saveClassGroup(ClassGroup classGroup) {
-       // user.setPassword(passwordEncoder.encode(user.getPassword()));
         dao.save(classGroup);
     }
  
@@ -39,18 +38,17 @@ public class ClassGroupServiceImpl implements ClassGroupService{
         ClassGroup entity = dao.findById(classGroup.getId());
         if(entity!=null){
             entity.setCode(classGroup.getCode());
-          /*  if(!user.getPassword().equals(entity.getPassword())){
-                entity.setPassword(passwordEncoder.encode(user.getPassword()));
-            }*/
             entity.setTitle(classGroup.getTitle());
+            entity.setUserClassGroups(null);
+            entity.setUserClassGroups(classGroup.getUserClassGroups());
             
             
         }
     }
  
      
-    public void deleteClassGroupByGroupCode(String code) {
-        dao.deleteByGroupCode(code);
+    public void deleteClassGroupByGroupCode(String group_code) {
+        dao.deleteByGroupCode(group_code);
     }
  
     public List<ClassGroup> findAllClassGroups() {

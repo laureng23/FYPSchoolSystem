@@ -15,6 +15,7 @@
 <body>
     <div class="generic-container">
         <%@include file="authheader.jsp" %>
+        <%@include file="sideNav.jsp" %>  
 
          <div class="well lead">Class Group Registration Form</div>
         <form:form method="POST" modelAttribute="classGroup" class="form-horizontal">

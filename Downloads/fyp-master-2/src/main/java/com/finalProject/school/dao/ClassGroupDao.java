@@ -9,11 +9,11 @@ public interface ClassGroupDao {
  
     ClassGroup findById(int id);
      
-    ClassGroup findByGroupCode(String code);
+    ClassGroup findByGroupCode(String group_code);
      
     void save(ClassGroup classGroup);
      
-    void deleteByGroupCode(String code);
+    void deleteByGroupCode(String group_code);
      
     List<ClassGroup> findAllClassGroups();
     

@@ -40,6 +40,7 @@ import com.finalProject.school.model.UserProfile;
 import com.finalProject.school.service.UserProfileService;
 import com.finalProject.school.service.UserService;
 import com.finalProject.school.service.student.StudentService;
+import com.finalProject.school.service.teacher.TeacherService;
 import com.finalProject.school.service.ClassGroupService;
 
 @Controller
@@ -55,6 +56,10 @@ public class AppController {
 	
 	@Autowired
 	StudentService studentService;
+	
+	@Autowired
+	TeacherService teacherService;
+
 
 	@Autowired
 	UserProfileService userProfileService;
@@ -118,7 +123,25 @@ public class AppController {
 
 		return "registration";
 	}
+	
+	//show all students
+	@RequestMapping(value = {"/studentList"}, method = RequestMethod.GET)
+	public String listStudents(ModelMap model) {
+		
+		List<User> students = studentService.listAllStudents();
+		model.addAttribute("students", students);
+		return "studentList";
+	}
 
+	//show all teachers
+		@RequestMapping(value = {"/teacherList"}, method = RequestMethod.GET)
+		public String listTeachers(ModelMap model) {
+			
+			List<User> teachers = teacherService.listAllTeachers();
+			model.addAttribute("teachers", teachers);
+			return "teacherList";
+		}
+		
 	// List all class groups
 	@RequestMapping(value = { "/classList" }, method = RequestMethod.GET)
 	public String listClassGroup(ModelMap model2) {
@@ -204,18 +227,12 @@ public class AppController {
 			return "addStudentClassGroup";
 		}
 
-		
-		List<User> users = userService.findAllUsers();
-
 		classGroupService.updateClassGroup(classGroup);
-		
-		//userService.saveUser(user);
-		//model2.addAttribute("users", users);
 
 		model2.addAttribute("success",
 				"ClassGroup " + classGroup.getCode() + ", " + classGroup.getTitle() + " updated successfully");
 		model2.addAttribute("loggedinuser", getPrincipal());
-		userService.updateUser(user);
+	
 		return "registrationsuccess";
 	}
 

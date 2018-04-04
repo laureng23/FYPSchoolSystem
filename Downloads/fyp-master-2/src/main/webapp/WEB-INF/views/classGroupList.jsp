@@ -14,7 +14,8 @@
  
 <body>
     <div class="generic-container">
-        <%@include file="authheader.jsp" %>   
+        <%@include file="authheader.jsp" %> 
+        <%@include file="sideNav.jsp" %>    
         <div class="panel panel-default">
               <!-- Default panel contents -->
             <div class="panel-heading"><span class="lead">List of Class Groups </span></div>

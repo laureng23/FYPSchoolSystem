@@ -3,8 +3,8 @@ package com.finalProject.school.model;
 import java.io.Serializable;
 
 public enum UserProfileType implements Serializable{
-    USER("USER"),
-    DBA("DBA"),
+    USER("STUDENT"),
+    TEACHER("TEACHER"),
     ADMIN("ADMIN");
      
     String userProfileType;

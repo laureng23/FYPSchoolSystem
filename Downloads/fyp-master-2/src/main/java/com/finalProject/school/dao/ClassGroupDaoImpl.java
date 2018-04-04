@@ -27,10 +27,10 @@ public class ClassGroupDaoImpl extends AbstractDao <Integer, ClassGroup> impleme
         return classGroup;
     }
  
-    public ClassGroup findByGroupCode(String code) {
-        logger.info("Code : {}", code);
+    public ClassGroup findByGroupCode(String group_code) {
+        logger.info("Code : {}", group_code);
         Criteria crit = createEntityCriteria();
-        crit.add(Restrictions.eq("code", code));
+        crit.add(Restrictions.eq("code", group_code));
         ClassGroup classGroup = (ClassGroup)crit.uniqueResult();
         if(classGroup!=null){
             Hibernate.initialize(classGroup);
@@ -45,9 +45,6 @@ public class ClassGroupDaoImpl extends AbstractDao <Integer, ClassGroup> impleme
         List<ClassGroup> classGroup = (List<ClassGroup>) criteria.list();
        
         
-       // for(User user : users){
-         //   Hibernate.initialize(user.getUserProfiles());
-        //}
         return classGroup;
     }
  
@@ -55,9 +52,9 @@ public class ClassGroupDaoImpl extends AbstractDao <Integer, ClassGroup> impleme
         persist(classGroup);
     }
  
-    public void deleteByGroupCode(String code) {
+    public void deleteByGroupCode(String group_code) {
         Criteria crit = createEntityCriteria();
-        crit.add(Restrictions.eq("code", code));
+        crit.add(Restrictions.eq("code", group_code));
         ClassGroup classGroup = (ClassGroup)crit.uniqueResult();
         delete(classGroup);
     }

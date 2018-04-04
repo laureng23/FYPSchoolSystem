@@ -13,7 +13,7 @@ import com.finalProject.school.model.dao.UserProfileIds;
 @Repository
 public class StudentDaoImpl extends AbstractDao<Integer, User> implements StudentDao {
 	
-	private static final String LIST_ALL_STUDENTS = "select * from APP_USER left join APP_USER_USER_PROFILE on APP_USER.id = APP_USER_USER_PROFILE.user_id where APP_USER_USER_PROFILE.user_profile_id = 1;";
+	private static final String LIST_ALL_STUDENTS = "select * from APP_USER left join APP_USER_USER_PROFILE on APP_USER.id = APP_USER_USER_PROFILE.user_id where APP_USER_USER_PROFILE.user_profile_id = 3;";
 	
 	@SuppressWarnings({ "unchecked" })
 	public List<User> listAllStudents() {

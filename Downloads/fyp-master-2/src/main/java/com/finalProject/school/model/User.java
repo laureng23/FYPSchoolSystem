@@ -14,7 +14,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
  
 import org.hibernate.validator.constraints.NotEmpty;
@@ -46,12 +45,7 @@ public class User implements Serializable{
     @Column(name="EMAIL", nullable=false)
     private String email;
     
-    @ManyToOne
-    @JoinColumn(name = "MOD_Id")
-    private ClassGroup classGroup;
-    
-    
- 
+  
     @NotEmpty
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "APP_USER_USER_PROFILE", 
@@ -114,15 +108,7 @@ public class User implements Serializable{
     public void setUserProfiles(Set<UserProfile> userProfiles) {
         this.userProfiles = userProfiles;
     }
-    
-    public ClassGroup getClassGroup() {
-    		return classGroup;
-    }
-    
-    public void setClassGroup(ClassGroup classGroup) {
-    		this.classGroup = classGroup;
-    }
- 
+   
     @Override
     public int hashCode() {
         final int prime = 31;

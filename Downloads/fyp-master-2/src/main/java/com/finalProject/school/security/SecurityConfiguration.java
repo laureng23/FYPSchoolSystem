@@ -16,6 +16,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenBasedRememberMeServices;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
+
  
 @Configuration
 @EnableWebSecurity
@@ -24,6 +25,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     @Qualifier("customUserDetailsService")
     UserDetailsService userDetailsService;
+    
+   
+	
  
     @Autowired
     PersistentTokenRepository tokenRepository;
@@ -37,9 +41,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers("/", "/list")
-                .access("hasRole('USER') or hasRole('ADMIN') or hasRole('DBA')")
+                .access("hasRole('USER') or hasRole('ADMIN') or hasRole('TEACHER')")
                 .antMatchers("/newuser/**", "/delete-user-*").access("hasRole('ADMIN')").antMatchers("/edit-user-*")
-                .access("hasRole('ADMIN') or hasRole('DBA')").and().formLogin().loginPage("/login")
+                .access("hasRole('ADMIN') or hasRole('TEACHER')").and().formLogin().loginPage("/login")
                 .loginProcessingUrl("/login").usernameParameter("ssoId").passwordParameter("password").and()
                 .rememberMe().rememberMeParameter("remember-me").tokenRepository(tokenRepository)
                 .tokenValiditySeconds(86400).and().csrf().and().exceptionHandling().accessDeniedPage("/Access_Denied");
